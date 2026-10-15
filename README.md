@@ -217,25 +217,24 @@ CloudWatch agent config (`/opt/aws/amazon-cloudwatch-agent/etc/amazon-cloudwatch
 
 ## Architecture
 
+```
 Internet
-│
-▼
+    │
+    ▼
 EC2 Security Group (port 80/443)
-│
-▼
+    │
+    ▼
 Apache2 Reverse Proxy (:80)
-│
-▼
+    │
+    ▼
 Node.js App (:3000) ← systemd (auto-restart)
-│
-├── PostgreSQL (RDS or local)
-├── Redis (ElastiCache or local)
-└── AWS S3 (audio storage)
-│
-└── CloudWatch (logs + metrics)
-
-
----
+    │
+    ├── PostgreSQL (RDS or local)
+    ├── Redis (ElastiCache or local)
+    └── AWS S3 (audio storage)
+         │
+         └── CloudWatch (logs + metrics)
+```
 
 ## Author
 
